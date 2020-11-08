@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Miniprojet</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-glyphicons.min.css">
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/js.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/css.css">
+    </head>
+    <body> 
+        <div id="myGlobalContainer" class="d-flex align-items-center justify-content-center">
+            <div id="myContainer">
+                <div class="card" id="indexjeu">
+                    <form class="form-horizontal">
+                        <div class="card-header" id="idheaderinfo">
+                            <div class="d-flex">
+                                <div class="p-3 mb-2 dark text-white">
+                                    <h3 class="font-italic"> Twin Images Games</h3>
+                                </div>
+                                <div  class="ml-auto p-2">
+                                    <button type="button" class="btn btn-warning" id="score1">Score</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="idbodyinfo">
+                            <div class="form-group row myLines p-3 mb-2 dark text-white">
+                                <label class="col-sm-6 col-form-label">Nom :</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" name="nompersonne" placeholder="Nom" >
+                                </div>
+                            </div>
+                            <div class="form-group row myLines p-3 mb-2 dark text-white">
+                                <label class="col-sm-6 col-form-label">Difficulté :</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="level" name="leveljeu">
+                                        <option value="Facile">Facile</option>
+                                        <option value="Moyen">Moyen</option>
+                                        <option value="Difficile">Difficile</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-check text-white">
+                                <input name="checkbox" type="checkbox" class="form-check-input" id="checkboxmontre" >
+                                <label class="form-check-label" for="exampleCheck1">Contre la monte</label>
+                            </div>
+                            <div id="temps" style="display: none;">
+                                <div>
+                                    <label>Minutes:</label>
+                                    <input type="number" min="0" max="59" id="minutecontrole" name="minute">
+                                    <label>Seconde:</label>
+                                    <input type="number" min="0" max="59" id="secondecontrole" name="seconde">
+                                </div> 
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <button type="button" class="btn btn-danger" id="reset">Réinitialiser</button>
+                                <button type="button" class="btn btn-success" id="commencer">Commencer</button>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+                <div class="card" id="games" style="display: none;">
+                    <form class="form-horizontal">
+                        <div class="card-header" id="idheaderjeu">
+                            <h3>
+                                <div class="d-flex justify-content-around">
+                                    <div class="form-check text-white">
+                                        <label id="prenom">Nom</label>
+                                    </div> 
+                                    <div class="form-check text-white">
+                                        <label id="dificulter">Dificulté</label>
+                                    </div>
+                                    <div id="montre" style="display: none;">
+                                        <span class="glyphicon glyphicon-hourglass" ></span>
+                                    </div>
+                                    <div id="normal" style="display: block;">
+                                        <span class="glyphicon glyphicon-time" ></span>
+                                    </div>
+                                    <div id="conteurdescend"  style="display: none">
+                                        <span class="badge badge-secondary">
+                                            <span class="badge badge-primary" id="disp_minutes">00</span>:
+                                            <span class="badge badge-primary" 
+                                                  id="disp_seconds">00</span>
+                                        </span>
+                                    </div>
+
+                                    <div id="conteurnormale" style="display: block;">
+                                        <span class="badge badge-secondary">
+                                            <span class="badge badge-danger" id="disp_minutes1">00</span>:
+                                            <span class="badge badge-danger" 
+                                                  id="disp_seconds1">00</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </h3>
+                        </div>
+                        <div id="tableDiv">
+                        </div>
+                        <div class="col myButtons" id="iddivboutonjeu">
+                            <button type="button" class="btn btn-danger" id="abandonner">Abandonner</button>
+                        </div>
+                    </form> 
+                </div>
+                <div class="card" id="gameover" style="display: none;">
+                    <form class="form-horizontal">
+                        <div>
+                            <h3 id="idgameover">
+                                <span id="normal1" class="glyphicon glyphicon-time" style="display: block" ></span>
+                                <span id="montre1" style="display: none" class="glyphicon glyphicon-hourglass" ></span>
+                                <label class="text-white">Game over</label>
+                            </h3>
+                        </div>
+                        <div class="col myButtons" id="idgameoverbouton">
+                            <button type="button" class="btn btn-danger" id="menu">Menu</button>
+                            <button type="button" class="btn btn-success" id="rejouer">Rejouer</button>
+                        </div>
+                    </form> 
+                </div>
+                <div class="card" id="Consulterscore" style="display: none;">
+                    <form class="form-horizontal">
+                        <div class="card-header" id="idheaderscore">
+                            <h3 id="title" class="text-white">Score</h3>
+                        </div>
+                        <div id="idresultatnormal">
+                            <div class="card-body scrollList">
+                                <div>
+                                    <label class="text-white"><span class="glyphicon glyphicon-time" id="montre"></span>Mode Normal</label>
+                                </div>
+                                <table class="table" id="tableScoresNormal">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-white">#</th>
+                                            <th scope="col" class="text-white">Joueur</th>
+                                            <th scope="col" class="text-white">Difficulté</th>
+                                            <th scope="col" class="text-white">Temps écoulé(s)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listescoresnormal">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-body scrollList">
+                                <div>
+                                    <label class="text-white"><span class="glyphicon glyphicon-hourglass" id="normal"></span>Mode contre la montre</label>
+                                </div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-white">#</th>
+                                            <th scope="col" class="text-white">Joueur</th>
+                                            <th scope="col" class="text-white">Difficulté</th>
+                                            <th scope="col" class="text-white">Temps défini(s)</th>
+                                            <th scope="col" class="text-white">Temps écoulé(s)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listescoresmontre">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col myButtons">
+                                <button type="button" class="btn btn-danger" id="menu1">Menu</button>
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+            </div>		
+        </div>
+    </body>
+</html>

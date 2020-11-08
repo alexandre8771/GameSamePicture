@@ -1,0 +1,44 @@
+html,body, #myGlobalContainer {
+    height: 100%;
+
+}
+
+h3{
+    text-align: center;
+}
+
+.myButtons{
+    text-align: center;
+    padding: 15px;
+}
+
+.myLines{
+    padding-left: 10px;
+}
+
+#myContainer{
+    width: 500px;
+}
+
+#ConsulterScore{
+    overflow: auto;
+}
+
+#myGlobalContainer{
+    background-image: url(../Twin_Image_Game_Dataset/fond.jpg);
+}
+#idbodyinfo,#idheaderinfo,#idheaderjeu,#iddivboutonjeu,#idgameover,#idgameoverbouton,#idheaderscore,#idresultatnormal{
+    background-color: black;
+}
+#normal,#montre,#normal1,#montre1{
+    color: white;
+}
+.couleur{
+    color: white;
+}
+.td{
+    color: white;
+}
+primary{
+    color
+}
